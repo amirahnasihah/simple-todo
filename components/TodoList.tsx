@@ -5,6 +5,16 @@ import { Todo } from "@/types/todo";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "@/components/ui/alert-dialog";
 import { TodoDetails } from "@/components/TodoDetails";
 import { TodoDialog } from "@/components/TodoDialog";
 import {
@@ -41,6 +51,15 @@ export function TodoList({ todos, onAdd, onUpdate, onDelete }: TodoListProps) {
   const [isDetailsOpen, setIsDetailsOpen] = useState(false);
   const [isEditOpen, setIsEditOpen] = useState(false);
   const [isAddOpen, setIsAddOpen] = useState(false);
+  const [isDeleteOpen, setIsDeleteOpen] = useState(false);
+  const [todoToDelete, setTodoToDelete] = useState<string | null>(null);
+
+  const handleDelete = () => {
+    if (todoToDelete) {
+      onDelete(todoToDelete);
+      setTodoToDelete(null);
+    }
+  };
 
   return (
     <>
@@ -109,7 +128,8 @@ export function TodoList({ todos, onAdd, onUpdate, onDelete }: TodoListProps) {
                         size="icon"
                         onClick={(e) => {
                           e.stopPropagation();
-                          onDelete(todo.id);
+                          setTodoToDelete(todo.id);
+                          setIsDeleteOpen(true);
                         }}
                       >
                         <TrashIcon className="w-4 h-4" />
@@ -156,6 +176,29 @@ export function TodoList({ todos, onAdd, onUpdate, onDelete }: TodoListProps) {
         onClose={() => setIsAddOpen(false)}
         onSubmit={onAdd}
       />
+
+      <AlertDialog open={isDeleteOpen} onOpenChange={setIsDeleteOpen}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+            <AlertDialogDescription>
+              This action cannot be undone. This will permanently delete the
+              todo from your list.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel onClick={() => setTodoToDelete(null)}>
+              Cancel
+            </AlertDialogCancel>
+            <AlertDialogAction
+              onClick={handleDelete}
+              className="bg-red-600 hover:bg-red-700"
+            >
+              Delete
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </>
   );
 }
