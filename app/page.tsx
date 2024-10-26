@@ -15,6 +15,9 @@ export default function Home() {
     filters,
     setFilters,
     totalTodos,
+    addTodo,
+    updateTodo,
+    deleteTodo,
   } = useTodos();
 
   return (
@@ -27,7 +30,12 @@ export default function Home() {
 
         <TodoFilters filters={filters} onFilterChange={setFilters} />
 
-        <TodoList todos={todos} />
+        <TodoList
+          todos={todos}
+          onAdd={addTodo}
+          onUpdate={updateTodo}
+          onDelete={deleteTodo}
+        />
 
         <Pagination
           currentPage={currentPage}
