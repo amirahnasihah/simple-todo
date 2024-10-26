@@ -5,6 +5,7 @@ import { TodoFilters } from "@/components/TodoFilters";
 import { Pagination } from "@/components/Pagination";
 import { useTodos } from "@/hooks/useTodos";
 import { ClipboardListIcon } from "lucide-react";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   const {
@@ -46,6 +47,8 @@ export default function Home() {
           totalItems={totalTodos}
         />
       </div>
+
+      <Footer />
     </main>
   );
 }
