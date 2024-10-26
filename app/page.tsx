@@ -25,7 +25,9 @@ export default function Home() {
       <div className="max-w-4xl mx-auto px-4 py-8">
         <div className="flex items-center gap-3 mb-8">
           <ClipboardListIcon className="w-8 h-8 text-primary" />
-          <h1 className="text-3xl font-bold text-primary">Todo Manager</h1>
+          <h1 className="text-3xl font-bold text-primary">
+            Lepasni nak buat apa?
+          </h1>
         </div>
 
         <TodoFilters filters={filters} onFilterChange={setFilters} />
