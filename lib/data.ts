@@ -1,0 +1,78 @@
+import { Todo, TodoStatus } from '@/types/todo';
+
+export const ITEMS_PER_PAGE = 5;
+
+export const dummyTodos: Todo[] = [
+  {
+    id: '1',
+    title: 'Complete project proposal',
+    description: 'Draft and finalize the Q2 project proposal',
+    status: 'IN_PROGRESS',
+    priority: 'HIGH',
+    dueDate: '2024-04-15',
+    createdAt: '2024-03-20',
+  },
+  {
+    id: '2',
+    title: 'Review code changes',
+    description: 'Review pull requests for the new feature',
+    status: 'PENDING',
+    priority: 'MEDIUM',
+    dueDate: '2024-04-10',
+    createdAt: '2024-03-19',
+  },
+  {
+    id: '3',
+    title: 'Update documentation',
+    description: 'Update API documentation with new endpoints',
+    status: 'COMPLETED',
+    priority: 'LOW',
+    dueDate: '2024-04-05',
+    createdAt: '2024-03-18',
+  },
+  {
+    id: '4',
+    title: 'Setup monitoring',
+    description: 'Configure monitoring tools for production',
+    status: 'IN_PROGRESS',
+    priority: 'HIGH',
+    dueDate: '2024-04-20',
+    createdAt: '2024-03-17',
+  },
+  {
+    id: '5',
+    title: 'Team meeting',
+    description: 'Weekly team sync meeting',
+    status: 'COMPLETED',
+    priority: 'MEDIUM',
+    dueDate: '2024-04-01',
+    createdAt: '2024-03-16',
+  },
+  {
+    id: '6',
+    title: 'Client presentation',
+    description: 'Prepare and deliver client presentation',
+    status: 'PENDING',
+    priority: 'HIGH',
+    dueDate: '2024-04-25',
+    createdAt: '2024-03-15',
+  },
+  {
+    id: '7',
+    title: 'Security audit',
+    description: 'Conduct security audit of the application',
+    status: 'IN_PROGRESS',
+    priority: 'HIGH',
+    dueDate: '2024-04-30',
+    createdAt: '2024-03-14',
+  },
+  {
+    id: '8',
+    title: 'Performance optimization',
+    description: 'Optimize application performance',
+    status: 'PENDING',
+    priority: 'MEDIUM',
+    dueDate: '2024-05-05',
+    createdAt: '2024-03-13',
+  },
+];
